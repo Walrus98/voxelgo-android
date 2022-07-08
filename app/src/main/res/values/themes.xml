@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Theme.VoxelGo" parent="Theme.Material3.Light.NoActionBar">
+
+        <item name="fontFamily">@font/sf_pro</item>
+
+        <item name="colorPrimary">@color/red</item>
+        <item name="colorOnPrimary">@color/red2</item>
+        <item name="colorPrimaryContainer">@color/red3</item>
+        <item name="colorOnPrimaryContainer">@color/red4</item>
+        <item name="colorPrimaryInverse">@color/red5</item>
+
+        <item name="colorSecondary">@color/whitegray</item>
+        <item name="colorOnSecondary">@color/yellow2</item>
+        <item name="colorSecondaryContainer">@color/white</item>
+        <item name="colorOnSecondaryContainer">@color/red</item>
+
+        <item name="colorTertiary">@color/green1</item>
+        <item name="colorOnTertiary">@color/green2</item>
+        <item name="colorTertiaryContainer">@color/green3</item>
+        <item name="colorOnTertiaryContainer">@color/green4</item>
+
+        <item name="android:colorBackground">@color/whitegray</item>
+        <item name="colorOnBackground">@color/white</item>
+        <item name="colorSurface">@color/blackgray</item>
+        <item name="colorOnSurface">@color/black</item>
+        <item name="colorSurfaceVariant">@color/purple3</item>
+        <item name="colorOnSurfaceVariant">@color/gray</item>
+        <item name="colorSurfaceInverse">@color/purple5</item>
+        <item name="colorOnSurfaceInverse">@color/purple6</item>
+
+        <item name="android:statusBarColor">@android:color/transparent</item>
+
+        <!--            <item name="android:statusBarColor" tools:targetApi="l">@color/white</item>-->
+        <item name="android:windowLightStatusBar">true</item>
+
+        <!--            <item name="android:windowLightNavigationBar">true</item>-->
+        <!--            <item name="android:navigationBarColor">?attr/colorOnBackground</item>-->
+
+    </style>
+</resources>

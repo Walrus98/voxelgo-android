@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/colorSecondary"
+    android:clickable="true"
+    android:focusable="true">
+
+    <WebView
+        android:id="@+id/webViewCollectible"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/buttonRotate"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/icon_model_rotation"
+        android:contentDescription="@string/button_rotate"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:layout_constraintBottom_toBottomOf="@+id/webViewCollectible"
+        app:layout_constraintEnd_toEndOf="@+id/webViewCollectible" />
+
+    <ImageButton
+        android:id="@+id/buttonBack"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/ic_baseline_arrow_back_24"
+        android:contentDescription="buttonBack"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:layout_constraintStart_toStartOf="@+id/webViewCollectible"
+        app:layout_constraintTop_toTopOf="@+id/webViewCollectible" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottieAnimationLoading"
+        android:layout_width="256dp"
+        android:layout_height="256dp"
+        app:layout_constraintBottom_toBottomOf="@+id/webViewCollectible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/webViewCollectible"
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="loading.json"
+        app:lottie_loop="true" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:paddingVertical="8dp"
+        android:orientation="vertical"
+        android:background="@drawable/view"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/webViewCollectible">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginVertical="12dp">
+
+            <ImageView
+                android:id="@+id/imageCollectibleName"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:contentDescription="descrizione"
+                android:src="@drawable/icon_collectible_name"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textViewModelName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="4dp"
+                android:text="@string/model_name"
+                android:textColor="?attr/colorOnSurfaceVariant"
+                android:textSize="18sp"
+                app:layout_constraintStart_toEndOf="@+id/imageCollectibleName"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textViewCollectibleName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp"
+                android:text="@string/collectible_name"
+                android:textSize="16sp"
+                android:textColor="?attr/colorOnSurface"
+                app:layout_constraintStart_toEndOf="@+id/imageCollectibleName"
+                app:layout_constraintTop_toBottomOf="@+id/textViewModelName" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginVertical="12dp">
+
+            <ImageView
+                android:id="@+id/imageRarity"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:contentDescription="descrizione"
+                android:src="@drawable/icon_collectible_rarity"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/modelRarity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
+                android:text="@string/model_rarity"
+                android:textColor="?attr/colorOnSurfaceVariant"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageRarity"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/buttonRarity"
+                android:layout_width="148dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/model_rarity_tipe"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">VoxelGO</string>
+
+    <string name="notification_content">Sono stati aggiunti nuovi collezionabili!</string>
+
+    <string name="dialog_title_no_internet">Nessuna connessione a internet!</string>
+    <string name="dialog_content_no_internet">Non è possibile verificare aggiornamenti o visualizzare i collezionabili. Assicurati di avere accesso ad una connessione ad internet. Vuoi riprovare?</string>
+
+    <string name="dialog_title_no_permission_received">Permessi di geolocalizzazione rifiutati!</string>
+    <string name="dialog_content_no_permission_received">Senza i permessi di geolocalizzazione non sarà possibile utilizzare la mappa per catturare i collezionabili.</string>
+
+    <!-- Fragment Collectible -->
+    <string name="button_rotate">Button Rotate</string>
+    <string name="collectible_name">Model Name</string>
+    <string name="model_name">Nome collezionabile</string>
+    <string name="model_rarity">Tipo rarità</string>
+    <string name="model_rarity_tipe">Rarità</string>
+
+    <!-- Fragment Profile -->
+    <string name="title_no_captured_collectibles">Nessun collezionabile catturato</string>
+    <string name="description_no_captured_collectibles">Cattura dei collezionabili per poterli visualizzare</string>
+
+</resources>
