@@ -2,9 +2,26 @@ package unipi.samuele.calugi.voxelgo.room.collectible;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "collectibles")
+import unipi.samuele.calugi.voxelgo.threads.DownloadThread;
+
+/**
+ * Classe dei Collezionabili, viene utilizzata:
+ *
+ * da Room per l'inserimento di nuovi collezionabili all'interno del database
+ * @see CollectibleDao
+ * @see CollectibleRepository
+ *
+ * dall'interfaccia DownloadThread per deserializzare la risposta HTTP inviata dal server sotto forma di json
+ * @see DownloadThread
+ */
+
+@Entity(
+    tableName = "collectibles",
+    indices = @Index(value = {"collectible_id"}, unique = true)
+)
 public class Collectible {
 
     @PrimaryKey(autoGenerate = true)

@@ -15,7 +15,7 @@ import unipi.samuele.calugi.voxelgo.room.collectible.Collectible;
             childColumns = "collectible_id",
             onDelete = ForeignKey.CASCADE)
     },
-    indices = {@Index(value = {"collectible_id"})} // @TODO controllare
+    indices = {@Index(value = {"collectible_id"})}
 )
 public class Capture {
 

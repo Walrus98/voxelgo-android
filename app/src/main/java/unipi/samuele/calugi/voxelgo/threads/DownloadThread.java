@@ -28,6 +28,25 @@ import unipi.samuele.calugi.voxelgo.room.collectible.CollectibleRepository;
 
 public class DownloadThread implements Runnable {
 
+    /**
+     * Thread secondario che si occupa di scaricare i collezionabili dal server.
+     *
+     * Quando quest'ultimo viene avviato, il thread contatta prima l'endpoint DATABASE_VERSION_URL per controllare se la versione del database
+     * che l'utente possiede è aggiornata.
+     * Nel caso in cui l'utente non possiede l'ultima versione del database, il Thread contatta l'endpoint DATABASE_COLLECTIONS_URL che restituisce
+     * un file in formato json contente la lista di tutti i collezionabili che l'utente può catturare.
+     * A questo punto il file json viene deserializzato sottoforma di classe Collectble (tramite liberia Gson) e ogni nuovo collezionabile viene
+     * inserito all'interno del database tramite Repository.
+     *
+     * @see DATABASE_VERSION_URL versione del database
+     * @see DATABASE_COLLECTIONS_URL lista dei collezionabili in json
+     * @see Collectible utilizzata per la deserializzazione
+     * @see CollectibleRepository utilizzata per inserire i collezionabili all'interno del database
+     *
+     * Questo Thread viene eseguito all'avvio dell'applicazione, o può essere lanciato dalla classe MainActivity con il Dialog dell'assenza di internet
+     *
+     */
+
     private final Application application;
     private final Context context;
 

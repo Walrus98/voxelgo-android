@@ -79,7 +79,6 @@ public class CollectibleAdapterProfile extends RecyclerView.Adapter<CollectibleA
                 fragmentTransaction.add(R.id.fragment_container, FragmentCollectible.class, bundle);
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
-
             }
         });
     }

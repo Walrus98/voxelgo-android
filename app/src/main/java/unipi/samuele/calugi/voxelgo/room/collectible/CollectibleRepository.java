@@ -12,6 +12,25 @@ import unipi.samuele.calugi.voxelgo.room.VoxelRoomDatabase;
 
 public class CollectibleRepository {
 
+    /**
+     * Poichè tutte le operazioni eseguite sul database (quindi tramite l'utilizzo di un DAO) devono essere fatte su Thread secondari, così da
+     * non bloccare l'esecuzione del ThreadUI, è oppurtono definire una classe Repository.
+     *
+     * La classe Repository si occupa di fornire l'insieme di tutte le operazioni che possono essere fatte sul database tramite DAO.
+     * In questo modo è facile eseguire tutte le operazioni in modo concorrente:
+     *
+     *  - la classe Repository è di tipo singleton, quindi viene istanziata una sola volta e viene preso il suo riferimento in memoria dalle
+     *  altre classi quando è necessario fare operazioni sul database.
+     *  - tutte le query da eseguire tramite DAO vengono inviate sotto farma di Runnable ad un Executor, quest'ultimo dichiarato e istanziato nella
+     *  classe VoxelRoomDatabase.
+     *
+     *  In questo modo è possibile avere più repository distinte che possono inviare query in maniera concorrente allo stesso database. L'atomicità
+     *  dei dati è rispettata grazie all'utilizzo dei LiveData. Quest'ultimi possono essere osservati da degli Observer e le view possono eseguire
+     *  delle operazioni nel momento in cui tali cambiano.
+     *
+     * @see VoxelRoomDatabase
+     */
+
     private static CollectibleRepository collectibleRepository;
 
     public static CollectibleRepository getInstance(Application application) {
@@ -21,53 +40,38 @@ public class CollectibleRepository {
         return collectibleRepository;
     }
 
+    // Riferimento al DAO istanziato nel database
     private final CollectibleDao collectibleDao;
+
+    // Lista di tutti i collezionabili che l'utente può catturare
     private final LiveData<List<Collectible>> allCollectibles;
+
+    // Executor utilizzato per le operazioni sul database in maniera concorrente
     private final Executor executor;
 
     public CollectibleRepository(Application application) {
+        // Prendo l'istanza del database
         VoxelRoomDatabase database = VoxelRoomDatabase.getInstance(application);
-        collectibleDao = database.collectibleDao();
-        allCollectibles = collectibleDao.getAllCollectibles();
 
+        // Prendo il riferimento al DAO
+        collectibleDao = database.collectibleDao();
+        // Prendo la lista di tutti i collezionabili sotto forma di LiveData
+        allCollectibles = collectibleDao.getAllCollectibles();
+        // Prendo il riferimento all'executor istanziato sul database
         executor = database.getExecutor();
     }
 
+    /**
+     * Metodo per inserire nuovi collezionabili all'interno del database
+     */
     public void insert(Collectible collectible) {
         executor.execute(() -> collectibleDao.insert(collectible));
     }
 
+    /**
+     * Metodo che restituisce la lista di collezionabili sotto forma di LiveData
+     */
     public LiveData<List<Collectible>> getAllCollectibles() {
         return allCollectibles;
     }
-
-
-//    public void update(Collectible collectible) {
-//        VoxelRoomDatabase.executor.execute(() -> collectibleDao.update(collectible));
-//    }
-//
-//    public void delete(Collectible collectible) {
-//        VoxelRoomDatabase.executor.execute(() -> collectibleDao.delete(collectible));
-//    }
-//
-//    public void deleteAllCollectibles(Collectible collectible) {
-//        VoxelRoomDatabase.executor.execute(collectibleDao::deleteAllCollectibles);
-//    }
-
-
-//    public int getCollectibleIDByName(String collectibleName) {
-//        return collectibleDao.getCollectibleIDByName(collectibleName);
-//    }
 }
-
-//    public int getCollectibleIDByName(String collectibleName) throws ExecutionException, InterruptedException {
-//        ExecutorService executor = VoxelRoomDatabase.executor;
-//        Future<Integer> future = executor.submit(new Callable<Integer>() {
-//            @Override
-//            public Integer call() throws Exception {
-//                return collectibleDao.getCollectibleIDByName(collectibleName);
-//            }
-//        });
-//        executor.awaitTermination(1L, TimeUnit.SECONDS);
-//        return future.get();
-//    }
