@@ -66,25 +66,4 @@ public class FragmentProfile extends Fragment {
         super.onDestroy();
         collectibles.setAdapter(null);
     }
-
-//    @Override
-//    public void onDestroyView() {
-//        super.onDestroyView();
-//    }
 }
-
-
-//        RecyclerView collectibles = requireView().findViewById(R.id.recyclerViewCollectibles);
-//        collectibles.setLayoutManager(new GridLayoutManager(getContext(), 3));
-//        collectibles.setAdapter(new CursorAdapter(getContext(), getAllItems()));
-//
-//        MainViewModel viewModel = new ViewModelProvider(this, new MainViewModelFactory(database)).get(MainViewModel.class);
-//        viewModel.getMutableLiveData().observe(getViewLifecycleOwner(), new Observer<Cursor>() {
-//            @Override
-//            public void onChanged(Cursor newCursor) {
-//                adapter.updateCursor(newCursor);
-//            }
-//        });
-//    private Cursor getAllItems() {
-//        return database.rawQuery("SELECT * FROM collectibles", null);
-//    }

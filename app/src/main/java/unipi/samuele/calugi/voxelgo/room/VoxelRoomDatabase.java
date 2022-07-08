@@ -43,35 +43,4 @@ public abstract class VoxelRoomDatabase extends RoomDatabase {
     public ExecutorService getExecutor() {
         return executor;
     }
-
 }
-
-//    private static final RoomDatabase.Callback roomCallback = new RoomDatabase.Callback() {
-//
-//        @Override
-//        public void onCreate(@NonNull SupportSQLiteDatabase db) {
-//            super.onCreate(db);
-//            new PopulateDbAsyncTask(appDatabase).execute();
-//        }
-//    };
-//
-//    private static class PopulateDbAsyncTask extends AsyncTask<Void, Void, Void> {
-//
-//        private final CollectibleDao collectibleDao;
-//
-//        private PopulateDbAsyncTask(AppDatabase appDatabase) {
-//            collectibleDao = appDatabase.collectibleDao();
-//        }
-//
-//        @Override
-//        protected Void doInBackground(Void... voids) {
-//            collectibleDao.insert(new Collectible("Nome1", "Modello1", "Immagine1", 0));
-//            collectibleDao.insert(new Collectible("Nome2", "Modello2", "Immagine2", 0));
-//            collectibleDao.insert(new Collectible("Nome3", "Modello3", "Immagine3", 0));
-//
-//            return null;
-//        }
-//    }
-
-    // fallbackToDestructiveMigration()
-    // addCallback(roomCallback)

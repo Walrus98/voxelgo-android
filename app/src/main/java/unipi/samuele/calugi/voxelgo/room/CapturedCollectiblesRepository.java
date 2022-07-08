@@ -41,17 +41,4 @@ public class CapturedCollectiblesRepository {
     public LiveData<List<Collectible>> getAllCapturedCollectibles() {
         return allCapturedCollectibles;
     }
-
 }
-
-//    public int getCollectibleIDByName(String collectibleName) throws ExecutionException, InterruptedException {
-//        ExecutorService executor = VoxelRoomDatabase.executor;
-//        Future<Integer> future = executor.submit(new Callable<Integer>() {
-//            @Override
-//            public Integer call() throws Exception {
-//                return collectibleDao.getCollectibleIDByName(collectibleName);
-//            }
-//        });
-//        executor.awaitTermination(1L, TimeUnit.SECONDS);
-//        return future.get();
-//    }

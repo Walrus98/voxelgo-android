@@ -41,6 +41,8 @@ public class MainActivity extends AppCompatActivity implements NavigationBarView
         setContentView(R.layout.activity_main);
 
         fragmentManager = getSupportFragmentManager();
+
+        // Istanzio il ViewModel del MainActivity e prendo il Fragment da dover mostrare a schermo
         viewModel = new ViewModelProvider(this).get(MainActivityViewModel.class);
         replaceFragment(viewModel.getFragment());
 
@@ -94,6 +96,7 @@ public class MainActivity extends AppCompatActivity implements NavigationBarView
      * Metodo utilizzato come listener dalla BottomNavigationBar, quando l'utente clicca su uno
      * dei pulsanti, viene sostituito il Fragment e viene memorizato sul MainActivityViewModel
      * quale Fragment l'utente sta visualizzando.
+     *
      * @see MainActivityViewModel
      */
     @Override

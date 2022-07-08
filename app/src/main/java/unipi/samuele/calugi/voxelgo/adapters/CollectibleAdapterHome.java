@@ -28,6 +28,11 @@ import unipi.samuele.calugi.voxelgo.room.collectible.Collectible;
 
 public class CollectibleAdapterHome extends RecyclerView.Adapter<CollectibleAdapterHome.ViewHolder> {
 
+    /**
+     * Adapter che viene utilizzato dal RecycleView del FragmentHome. Contiene la lista di tutti i
+     * collezionabili che l'utente può catturare
+     */
+
     private List<Collectible> collectibles;
     private final Context context;
 
@@ -50,11 +55,7 @@ public class CollectibleAdapterHome extends RecyclerView.Adapter<CollectibleAdap
 
         Collectible collectible = collectibles.get(position);
 
-        final String collectibleName = collectible.getCollectibleName();
-        final String collectibleModel = collectible.getCollectibleModel();
-        final String collectibleRarity = collectible.getCollectibleRarity().toString();
-
-        holder.titleView.setText(collectibleName);
+        holder.titleView.setText(collectible.getCollectibleName());
 
         Glide.with(context)
                 .load(collectible.getCollectibleImage())
@@ -67,9 +68,15 @@ public class CollectibleAdapterHome extends RecyclerView.Adapter<CollectibleAdap
         return collectibles.size();
     }
 
+    /**
+     * Metodo che viene invocato dall'observer tramite callback onChange() nel FragmentHome. Ogni volta che
+     * vengono aggiunti nuovi collezionabili all'interno della lista, viene chiamato il questo metodo.
+     */
     @SuppressLint("NotifyDataSetChanged")
     public void setCollectibles(List<Collectible> collectibles) {
+        // Aggiorno il contenuto della lista inserendo i nuovi collezionabili al suo interno
         this.collectibles = collectibles;
+        // Notifico che la lista di collezionabili è cambiata e quindi è necessario aggiornare la view
         notifyDataSetChanged();
     }
 
