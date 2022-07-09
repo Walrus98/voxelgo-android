@@ -7,6 +7,26 @@ import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
 import unipi.samuele.calugi.voxelgo.room.collectible.Collectible;
+import unipi.samuele.calugi.voxelgo.room.collectible.CollectibleDao;
+import unipi.samuele.calugi.voxelgo.room.collectible.CollectibleRepository;
+import unipi.samuele.calugi.voxelgo.threads.DownloadThread;
+
+/**
+ * Classe dei collezionabili catturati, viene utilizzata da Room per l'inserimento di nuove catture all'interno del database
+ *
+ * @see CaptureDao
+ * @see CaptureRepository
+ *
+ * +-------------------+-----------------------+--------------------+--------------------+
+ * |    capture_id     |    collectible_id     |    capture_date    |  capture_location  |
+ * +-------------------+-----------------------+--------------------+--------------------+
+ * | id della cattura  | id del collezionabile | data di cattura    | luogo di cattura   |
+ * | usato come chiave | catturato             | del collezionabile | del collezionabile |
+ * | primaria con      | usato come chiave     |                    |                    |
+ * | autoincrement     | esterna               |                    |                    |
+ * +-------------------+-----------------------+--------------------+--------------------+
+ *
+ */
 
 @Entity(
     tableName = "captures",

@@ -16,6 +16,15 @@ import unipi.samuele.calugi.voxelgo.threads.DownloadThread;
  *
  * dall'interfaccia DownloadThread per deserializzare la risposta HTTP inviata dal server sotto forma di json
  * @see DownloadThread
+ *
+ * +----------------------------+-------------------------+---------------------------+-------------------+--------------------+
+ * |       collectible_id       |    collectible_name     |     collectible_model     | collectible_image | collectible_rarity |
+ * +----------------------------+-------------------------+---------------------------+-------------------+--------------------+
+ * | id del collezionabile      | nome del collezionabile | url del collezionabile    | url dell'immagine | rarità del modello |
+ * | usato come chiave primaria |                         | contentente il modello 3D | di anteprima del  |                    |
+ * | con autoincrement          |                         | usato dalla webview       | modello           |                    |
+ * +----------------------------+-------------------------+---------------------------+-------------------+--------------------+
+ *
  */
 
 @Entity(
@@ -37,7 +46,7 @@ public class Collectible {
     @ColumnInfo(name = "collectible_image")
     private final String collectibleImage;
 
-    @ColumnInfo(name = "collectible_rarity")
+    @ColumnInfo(name = "")
     private final RarityType collectibleRarity;
 
     public Collectible(String collectibleName, String collectibleModel, String collectibleImage, RarityType collectibleRarity) {

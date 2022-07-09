@@ -57,6 +57,8 @@ public class CollectibleAdapterHome extends RecyclerView.Adapter<CollectibleAdap
 
         holder.titleView.setText(collectible.getCollectibleName());
 
+        // Libreria utilizzata per scaricare l'immagine dalla rete e inserirla all'interno dell'imageView.
+        // Grazie a Glide le immagini una volta scaricate vengono anche cachate, in modo da ridurre il consumo di rete
         Glide.with(context)
                 .load(collectible.getCollectibleImage())
                 .diskCacheStrategy(DiskCacheStrategy.DATA)

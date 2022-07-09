@@ -1,6 +1,11 @@
 <resources>
     <string name="app_name">VoxelGO</string>
 
+    <!-- Bottom Navigation Bar -->
+    <string name="button_home">Home</string>
+    <string name="button_map">Map</string>
+    <string name="button_profile">Profile</string>
+
     <string name="notification_content">Sono stati aggiunti nuovi collezionabili!</string>
 
     <string name="dialog_title_no_internet">Nessuna connessione a internet!</string>
@@ -19,5 +24,6 @@
     <!-- Fragment Profile -->
     <string name="title_no_captured_collectibles">Nessun collezionabile catturato</string>
     <string name="description_no_captured_collectibles">Cattura dei collezionabili per poterli visualizzare</string>
+
 
 </resources>

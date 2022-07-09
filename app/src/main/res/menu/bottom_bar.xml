@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:title="Home"
+    <item android:title="@string/button_home"
         android:id="@+id/buttonHome"
         android:icon="@drawable/icon_home"
         />
-    <item android:title="Map"
+    <item android:title="@string/button_map"
         android:id="@+id/buttonExplore"
         android:icon="@drawable/icon_map"
         />
-    <item android:title="Profile"
+    <item android:title="@string/button_profile"
         android:id="@+id/buttonProfile"
         android:icon="@drawable/icon_profile"
         />

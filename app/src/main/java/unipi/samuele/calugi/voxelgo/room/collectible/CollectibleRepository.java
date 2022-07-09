@@ -25,8 +25,7 @@ public class CollectibleRepository {
      *  classe VoxelRoomDatabase.
      *
      *  In questo modo è possibile avere più repository distinte che possono inviare query in maniera concorrente allo stesso database. L'atomicità
-     *  dei dati è rispettata grazie all'utilizzo dei LiveData. Quest'ultimi possono essere osservati da degli Observer e le view possono eseguire
-     *  delle operazioni nel momento in cui tali cambiano.
+     *  dei dati è rispettata grazie all'utilizzo dei LiveData.
      *
      * @see VoxelRoomDatabase
      */

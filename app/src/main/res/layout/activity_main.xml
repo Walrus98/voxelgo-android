@@ -20,7 +20,7 @@
         android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/test"
+        android:background="@drawable/view_rounded_bottomnavbar"
         app:labelVisibilityMode="unlabeled"
         app:elevation="0dp"
         app:menu="@menu/bottom_bar">
