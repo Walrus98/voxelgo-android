@@ -5,6 +5,7 @@ import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
+import androidx.room.Update;
 
 import java.util.List;
 
@@ -16,7 +17,6 @@ import java.util.List;
  *
  * @see "https://developer.android.com/training/data-storage/room/accessing-data"
  */
-
 @Dao
 public abstract class CollectibleDao {
 

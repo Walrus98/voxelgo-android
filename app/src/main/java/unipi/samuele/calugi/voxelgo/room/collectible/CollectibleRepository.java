@@ -30,6 +30,7 @@ public class CollectibleRepository {
      * @see VoxelRoomDatabase
      */
 
+    // Singleton pattern
     private static CollectibleRepository collectibleRepository;
 
     public static CollectibleRepository getInstance(Application application) {

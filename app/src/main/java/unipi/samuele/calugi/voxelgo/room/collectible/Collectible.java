@@ -10,11 +10,11 @@ import unipi.samuele.calugi.voxelgo.threads.DownloadThread;
 /**
  * Classe dei Collezionabili, viene utilizzata:
  *
- * da Room per l'inserimento di nuovi collezionabili all'interno del database
+ * - da Room per l'inserimento di nuovi collezionabili all'interno del database
  * @see CollectibleDao
  * @see CollectibleRepository
  *
- * dall'interfaccia DownloadThread per deserializzare la risposta HTTP inviata dal server sotto forma di json
+ * - dall'interfaccia DownloadThread per deserializzare la risposta HTTP inviata dal server sotto forma di json
  * @see DownloadThread
  *
  * +----------------------------+-------------------------+---------------------------+-------------------+--------------------+
@@ -24,7 +24,6 @@ import unipi.samuele.calugi.voxelgo.threads.DownloadThread;
  * | usato come chiave primaria |                         | contentente il modello 3D | di anteprima del  |                    |
  * | con autoincrement          |                         | usato dalla webview       | modello           |                    |
  * +----------------------------+-------------------------+---------------------------+-------------------+--------------------+
- *
  */
 
 @Entity(
@@ -33,7 +32,7 @@ import unipi.samuele.calugi.voxelgo.threads.DownloadThread;
 )
 public class Collectible {
 
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey
     @ColumnInfo(name = "collectible_id")
     private int collectibleID;
 
@@ -46,10 +45,11 @@ public class Collectible {
     @ColumnInfo(name = "collectible_image")
     private final String collectibleImage;
 
-    @ColumnInfo(name = "")
+    @ColumnInfo(name = "collectible_rarity")
     private final RarityType collectibleRarity;
 
-    public Collectible(String collectibleName, String collectibleModel, String collectibleImage, RarityType collectibleRarity) {
+    public Collectible(int collectibleID, String collectibleName, String collectibleModel, String collectibleImage, RarityType collectibleRarity) {
+        this.collectibleID = collectibleID;
         this.collectibleName = collectibleName;
         this.collectibleModel = collectibleModel;
         this.collectibleImage = collectibleImage;

@@ -50,7 +50,7 @@ public class FragmentCollectible extends Fragment implements View.OnClickListene
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        // Prendo gli argomenti inseriti nel bundle inviati dal CollectibleAdapterProfile
+        // Prendo gli argomenti inseriti nel bundle dal CollectibleAdapterProfile
         Bundle bundle = requireArguments();
         // Nome del collezionabile
         String collectibleName = bundle.getString("collectible_name");

@@ -32,7 +32,6 @@ public class CollectibleAdapterHome extends RecyclerView.Adapter<CollectibleAdap
      * Adapter che viene utilizzato dal RecycleView del FragmentHome. Contiene la lista di tutti i
      * collezionabili che l'utente può catturare
      */
-
     private List<Collectible> collectibles;
     private final Context context;
 
@@ -53,8 +52,10 @@ public class CollectibleAdapterHome extends RecyclerView.Adapter<CollectibleAdap
     @SuppressLint("Range")
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
+        // Prendo il riferimento del collezionabile
         Collectible collectible = collectibles.get(position);
 
+        // Imposto il nome del collezionabile
         holder.titleView.setText(collectible.getCollectibleName());
 
         // Libreria utilizzata per scaricare l'immagine dalla rete e inserirla all'interno dell'imageView.

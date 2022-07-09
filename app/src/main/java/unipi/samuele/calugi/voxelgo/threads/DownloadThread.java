@@ -122,20 +122,23 @@ public class DownloadThread implements Runnable {
         // Prendo la risposta del server che contiene la lista di tutti i collezionabili in formato JSON
         String responseCollectibles = IOUtils.toString(URI.create(DATABASE_COLLECTIONS_URL), StandardCharsets.UTF_8);
         // Deserializzo il file JSON e lo converto in un array di collezionabili
-        Collectible[] models = gson.fromJson(responseCollectibles, Collectible[].class);
+        Collectible[] collectibles = gson.fromJson(responseCollectibles, Collectible[].class);
 
         // Prendo il riferimento alla Repository per potere aggiungere nuovi collezionabili  all'interno del database
         CollectibleRepository repository = CollectibleRepository.getInstance(application);
 
         // Inserisco i collezionabili all'interno del database tramite repository
-        for (Collectible collectible : models) {
+        for (Collectible collectible : collectibles) {
             repository.insert(collectible);
         }
 
         // Mostro all'utente una notifica per dirgli che sono stati aggiunti nuovi collezionabili
         CharSequence notificationTitle = context.getText(R.string.app_name);
         CharSequence notificationContent = context.getText(R.string.notification_content);
-        new NotificationHandler(application).showNotification(notificationTitle, notificationContent);
+        // Prendo il riferimento all'istanza del notification handler
+        NotificationHandler notificationHandler = NotificationHandler.getInstance(application);
+        // Mostro la notifica a schermo
+        notificationHandler.showNotification(notificationTitle, notificationContent);
     }
 
     /**

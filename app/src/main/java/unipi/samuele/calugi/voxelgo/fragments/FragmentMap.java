@@ -126,7 +126,7 @@ public class FragmentMap extends Fragment implements OnMapReadyCallback, GoogleM
         if (isDarkModEnabled()) {
             map.setMapStyle(MapStyleOptions.loadRawResourceStyle(requireActivity(), R.raw.mapstyle_dark));
         } else {
-            map.setMapStyle(MapStyleOptions.loadRawResourceStyle(requireActivity(), R.raw.mapstyle));
+            map.setMapStyle(MapStyleOptions.loadRawResourceStyle(requireActivity(), R.raw.mapstyle_light));
         }
 
         map.getUiSettings().setCompassEnabled(true);
@@ -260,48 +260,8 @@ public class FragmentMap extends Fragment implements OnMapReadyCallback, GoogleM
         }
     }
 
-    //            ActivityCompat.requestPermissions(requireActivity(), new String[] {Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, 1);
-
-
-//    @Override
-//    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-//        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-//
-//
-//        if (requestCode == 1) {
-//            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-//                getDeviceLocation();
-//                getMarkersLocation();
-//            }
-//        }
-//    }
-
     private boolean isDarkModEnabled() {
         int nightModeFlags = requireContext().getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
         return nightModeFlags == Configuration.UI_MODE_NIGHT_YES;
     }
-
 }
-
-
-//    @Override
-//    public boolean onMarkerClick(@NonNull Marker marker) {
-//        marker.showInfoWindow();
-//        return true;
-//    }
-
-//        CameraPosition cameraPosition = new CameraPosition.Builder()
-//                .target(new LatLng(location.getLatitude(), location.getLongitude()))      // Sets the center of the map to Mountain View
-//                .zoom(20)                   // Sets the zoom
-//                .bearing(90)                // Sets the orientation of the camera to east
-//                .tilt(30)                   // Sets the tilt of the camera to 30 degrees
-//                .build();                   // Creates a CameraPosition from the builder
-//        map.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
-
-
-//        map.getUiSettings().setZoomControlsEnabled(false);
-//        map.getUiSettings().setZoomGesturesEnabled(false);
-//        map.getUiSettings().setScrollGesturesEnabledDuringRotateOrZoom(false);
-//        map.getUiSettings().setScrollGesturesEnabled(false);
-//        map.getUiSettings().setTiltGesturesEnabled(false);
-

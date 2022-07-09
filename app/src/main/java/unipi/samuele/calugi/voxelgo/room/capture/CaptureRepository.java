@@ -26,6 +26,8 @@ public class CaptureRepository {
      *
      * @see VoxelRoomDatabase
      */
+
+    // Singleton pattern
     private static CaptureRepository captureRepository;
 
     public static CaptureRepository getInstance(Application application) {

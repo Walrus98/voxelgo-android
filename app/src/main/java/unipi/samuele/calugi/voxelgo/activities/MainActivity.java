@@ -1,6 +1,7 @@
 package unipi.samuele.calugi.voxelgo.activities;
 
 import android.annotation.SuppressLint;
+import android.content.res.Configuration;
 import android.net.http.HttpResponseCache;
 import android.os.Bundle;
 import android.util.Log;
@@ -24,6 +25,7 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 
 import unipi.samuele.calugi.voxelgo.R;
+import unipi.samuele.calugi.voxelgo.fragments.FragmentCollectible;
 import unipi.samuele.calugi.voxelgo.fragments.FragmentHome;
 import unipi.samuele.calugi.voxelgo.fragments.FragmentMap;
 import unipi.samuele.calugi.voxelgo.fragments.FragmentProfile;
@@ -42,9 +44,17 @@ public class MainActivity extends AppCompatActivity implements NavigationBarView
 
         fragmentManager = getSupportFragmentManager();
 
-        // Istanzio il ViewModel del MainActivity e prendo il Fragment da dover mostrare a schermo
+        // Istanzio il ViewModel della classe MainActivity
         viewModel = new ViewModelProvider(this).get(MainActivityViewModel.class);
-        replaceFragment(viewModel.getFragment());
+
+        // - se c'è qualcosa nel bundle, significa che l'utente prima si trovava nel FragmentCollectible,
+        // il metodo replaceFragment non deve essere chiamato
+        // - se il bundle è vuoto, significa che l'utentte prima si trovava in uno dei fragment della bottom navigation bar,
+        // quindi posso chiamare il metodo replace fragment
+        if (savedInstanceState == null || savedInstanceState.getString("fragment_collectible") == null) {
+            // Mostro a schermo uno dei fragment della barra di navigazione
+            replaceFragment(viewModel.getFragment());
+        }
 
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setOnItemSelectedListener(this);
@@ -121,6 +131,19 @@ public class MainActivity extends AppCompatActivity implements NavigationBarView
         }
 
         return true;
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        // Se mi trovo all'interno del Fragment Collectible
+        Fragment fragment = fragmentManager.findFragmentById(R.id.fragment_container);
+        if (fragment instanceof FragmentCollectible) {
+            // Inserisco un valore all'interno del bundle, in questo modo quando viene richiamato il metodo onCreate della MainActivty
+            // non vado a sostituire il Fragment con uno della bottom navigation bar
+            outState.putString("fragment_collectible", "collectible");
+        }
     }
 
     /**

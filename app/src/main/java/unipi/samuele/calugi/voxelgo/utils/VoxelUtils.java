@@ -15,7 +15,7 @@ public class VoxelUtils {
     public static final int MARKER_SPAWN_AMOUNT = 7;
 
     // Distanza massima fra l'utente e il Marker per poterlo catturare
-    public static final int MARKER_COLLECT_DISTANCE = 200;
+    public static final int MARKER_COLLECT_DISTANCE = 25;
 
     // Distanza necessaria percorsa dall'utente per aggiornare la posizione della telecamera
     public static final int CAMERA_DISTANCE_METERS = 15;

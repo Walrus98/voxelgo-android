@@ -49,11 +49,4 @@ public class CollectiblesHandler implements Observer<List<Collectible>> {
     public void destroyObserver()  {
         collectibleRepository.getAllCollectibles().removeObserver(this);
     }
-
-
-
-
-//    public Collectible getRandomCollectible() {
-//        return collectibleList.get(random.nextInt(collectibleList.size()));
-//    }
 }
