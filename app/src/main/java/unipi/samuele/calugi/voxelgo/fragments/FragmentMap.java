@@ -119,14 +119,8 @@ public class FragmentMap extends Fragment implements OnMapReadyCallback, GoogleM
     @Override
     public void onPause() {
         super.onPause();
+
         if (locationPermissionGranted) fusedLocationProviderClient.removeLocationUpdates(locationCallback);
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-
-        markerHandler.destroy();
     }
 
     @Override
@@ -187,7 +181,7 @@ public class FragmentMap extends Fragment implements OnMapReadyCallback, GoogleM
     private void getDeviceLocation() {
         // Se l'utente ha conferito i permessi di geolocalizzazione
         if (locationPermissionGranted) {
-            // Faccop comparire la posizione dell'utente sulla mappa
+            // Faccio comparire la posizione dell'utente sulla mappa
             map.setMyLocationEnabled(true);
 
             // Registro la richiesta di ottenere la posizione dell'utente
@@ -222,12 +216,12 @@ public class FragmentMap extends Fragment implements OnMapReadyCallback, GoogleM
                         }
                         // Se la posizione dell'utente è diversa da null, significa che ho già memorizzato in passato la sua posizione. Quindi
                         // devo controllare la distanza fra la nuova posizione e quella precedente.
-                        // Se la distanza fra la vecchia posizione e quella nuova è maggiore di CAMERA_DISTANCE_METERS metri e l'utente non ha nessuna
+                        // Se la distanza fra la vecchia posizione e quella nuova è maggiore di {CAMERA_DISTANCE_METERS} metri e l'utente non ha nessuna
                         // schermata di menù di un Marker aperta, allora sposto la telecamera sulla nuova posizione dell'utente
                         if (!isViewInfoClicked && currentLocation.distanceTo(location) > VoxelUtils.CAMERA_DISTANCE_METERS) {
                             map.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(location.getLatitude(), location.getLongitude()), 20));
                         }
-                        // Se la distanza fra la vecchia posizione e quella nuova è maggiore di MARKER_UPDATE_DISTANCE metri e l'utente non nessuna
+                        // Se la distanza fra la vecchia posizione e quella nuova è maggiore di {MARKER_UPDATE_DISTANCE} metri e l'utente non nessuna
                         // schermata di menù di un Marker aperta, allora aggiorno la posizione dell'utente memorizzata all'interno di lastKnownLocation
                         if (!isViewInfoClicked && currentLocation.distanceTo(location) > VoxelUtils.MARKER_UPDATE_DISTANCE) {
                             // Memorizzo la posizione corrente dell'utente all'interno di lastKnownLocation.

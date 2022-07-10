@@ -30,8 +30,7 @@
         <item name="colorSurfaceInverse">@color/purple5</item>
         <item name="colorOnSurfaceInverse">@color/purple6</item>
 
-                    <item name="android:statusBarColor">@android:color/transparent</item>
-
+        <item name="android:statusBarColor">@android:color/transparent</item>
 
 <!--        <item name="android:statusBarColor">@color/white</item>-->
         <item name="android:windowLightStatusBar">true</item>

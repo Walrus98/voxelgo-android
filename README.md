@@ -1,3 +1,0 @@
-# voxelgo-android
-
-Progetto SAM

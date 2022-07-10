@@ -29,6 +29,7 @@ import unipi.samuele.calugi.voxelgo.fragments.FragmentCollectible;
 import unipi.samuele.calugi.voxelgo.fragments.FragmentHome;
 import unipi.samuele.calugi.voxelgo.fragments.FragmentMap;
 import unipi.samuele.calugi.voxelgo.fragments.FragmentProfile;
+import unipi.samuele.calugi.voxelgo.handlers.MarkerHandler;
 import unipi.samuele.calugi.voxelgo.room.VoxelRoomDatabase;
 import unipi.samuele.calugi.voxelgo.viewmodels.MainActivityViewModel;
 
