@@ -26,13 +26,13 @@ import unipi.samuele.calugi.voxelgo.R;
 
 public class FragmentCollectible extends Fragment implements View.OnClickListener {
 
-    private ImageButton modelRotateButton;
-    private ImageButton buttonBack;
-    private WebView webView;
-
     /**
      * Fragment utilizzato per mostrare il modello 3D del collezionabile catturato
      */
+
+    private ImageButton modelRotateButton;
+    private ImageButton buttonBack;
+    private WebView webView;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
