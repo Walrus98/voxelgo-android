@@ -36,15 +36,13 @@ dependencies {
     implementation 'com.google.android.material:material:1.6.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
-    // Jetpack Room (DAO)
+    // Room (DAO)
     implementation "androidx.room:room-runtime:2.4.2"
-    implementation 'com.google.android.gms:play-services-maps:18.0.2'
     annotationProcessor "androidx.room:room-compiler:2.4.2"
 
     // Maps
     implementation 'com.google.android.gms:play-services-maps:18.0.2'
     implementation "com.google.android.gms:play-services-location:20.0.0"
-
 
     // ViewModel
     implementation "androidx.lifecycle:lifecycle-viewmodel:2.5.0-rc02"
