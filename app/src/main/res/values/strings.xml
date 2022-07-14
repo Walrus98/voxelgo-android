@@ -21,9 +21,24 @@
     <string name="model_rarity">Tipo rarità</string>
     <string name="model_rarity_tipe">Rarità</string>
 
+    <!-- Fragment Home -->
+    <string name="collectibles_amount">Totale collezionabili</string>
+    <string name="collectibles_quantity">0</string>
+
     <!-- Fragment Profile -->
     <string name="title_no_captured_collectibles">Nessun collezionabile catturato</string>
     <string name="description_no_captured_collectibles">Cattura dei collezionabili per poterli visualizzare</string>
+
+    <!-- Fragment Collectible -->
+    <string name="button_back">buttonBack</string>
+
+    <!-- Info Window -->
+    <string name="marker_name">Collectible Name</string>
+    <string name="marker_rarity">Rarity</string>
+
+    <!-- Item Collectible -->
+    <string name="image_description">descrizione</string>
+    <string name="text_collectible">textCollectible</string>
 
 
 </resources>

@@ -161,7 +161,7 @@ public class DownloadThread implements Runnable {
         try {
             OutputStream outputStream = new FileOutputStream(file);
             IOUtils.write(text, outputStream, StandardCharsets.UTF_8);
-        } catch (Exception exception) {
+        } catch (IOException exception) {
             Log.e("VoxelGO ->", exception.getMessage());
         }
     }

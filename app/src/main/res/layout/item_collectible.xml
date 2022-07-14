@@ -30,6 +30,7 @@
                 android:layout_height="156dp"
                 android:layout_marginTop="8dp"
                 android:background="?attr/colorSecondary"
+                android:contentDescription="@string/image_description"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -40,7 +41,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:textColor="?attr/colorSurface"
-                android:text="textCollectible"
+                android:text="@string/text_collectible"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
