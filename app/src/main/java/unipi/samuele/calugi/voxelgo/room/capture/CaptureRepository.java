@@ -21,8 +21,7 @@ public class CaptureRepository {
      *  - tutte le query da eseguire tramite DAO vengono inviate sotto farma di Runnable ad un Executor, quest'ultimo dichiarato e istanziato nella
      *  classe VoxelRoomDatabase.
      *
-     *  In questo modo è possibile avere più repository distinte che possono inviare query in maniera concorrente allo stesso database. L'atomicità
-     *  dei dati è rispettata grazie all'utilizzo dei LiveData.
+     *  In questo modo è possibile avere più repository distinte che possono inviare query in maniera concorrente allo stesso database.
      *
      * @see VoxelRoomDatabase
      */
